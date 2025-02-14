@@ -1,0 +1,140 @@
+body {
+    font-family: 'monospace', sans-serif; /* Corrected font-family */
+    background-color: #000; /* Black background */
+    background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ff69b4' fill-opacity='0.1'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Changed to min-height for better mobile support */
+    margin: 0;
+    overflow: hidden;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column; /* Stack elements vertically */
+        overflow-y: auto; /* Allow vertical scrolling */
+        padding: 20px; /* Add padding for mobile */
+    }
+
+    .card {
+        width: 100%; /* Full width on mobile */
+        height: auto; /* Auto height for content */
+        max-width: none; /* Remove max-width restriction */
+    }
+}
+
+.card {
+    background-color: #fff; /* White card background for contrast */
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2); /* Softer shadow */
+    padding: 20px; /* Adjusted padding for medium size */
+    text-align: center;
+    max-width: 350px; /* Adjusted max-width for medium size */
+    width: 76%;
+    height: auto; /* Changed to auto for better content fitting */
+    position: relative;
+    overflow: hidden;
+}
+
+h1 {
+    color: #ff69b4; /* Pink text for the heading */
+    font-size: 24px; /* Slightly smaller font size for medium design */
+    margin-bottom: 13px;
+    line-height: 1.4;
+    font-family: 'Georgia', serif; /* Elegant font */
+}
+
+.panda-container {
+    width: 180px; /* Adjusted width for medium size */
+    height: 180px; /* Adjusted height for medium size */
+    margin: 0 auto 20px;
+    position: relative;
+}
+
+.panda-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.heart {
+    position: absolute;
+    font-size: 24px;
+    color: #ff69b4; /* Pink hearts */
+    opacity: 0;
+    transition: all 0.5s ease;
+    animation: float 3s infinite; /* Floating animation */
+}
+
+.card:hover .panda-image {
+    transform: scale(1.1);
+}
+
+.card:hover .heart {
+    opacity: 1;
+    transform: translateY(-20px);
+}
+
+.message {
+    font-size: 16px; /* Adjusted font size for medium design */
+    color: #333; /* Darker text for better readability */
+    margin-bottom: 20px;
+    font-family: 'Georgia', serif; /* Elegant font */
+}
+
+.ribbon {
+    position: absolute;
+    top: -9px;
+    right: -10px;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+}
+
+.ribbon::before,
+.ribbon::after {
+    position: absolute;
+    z-index: -1;
+    content: '';
+    display: block;
+    border: 5px solid #ff69b4; /* Pink ribbon */
+    border-top-color: transparent;
+    border-right-color: transparent;
+}
+
+.ribbon::before {
+    top: 0;
+    left: 0;
+}
+
+.ribbon::after {
+    bottom: 0;
+    right: 0;
+}
+
+.ribbon span {
+    position: absolute;
+    display: block;
+    width: 280px;
+    padding: 15px 0;
+    background-color: #ff69b4; /* Pink ribbon background */
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    color: #fff; /* White text */
+    font: 700 14px/0 'Lato', sans-serif;
+    text-shadow: 0 1px 1px rgba(0,0,0,.2);
+    text-transform: uppercase;
+    text-align: center;
+    left: -25px;
+    top: 25px;
+    transform: rotate(45deg);
+}
+
+/* Floating hearts animation */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
